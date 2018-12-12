@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace News_Ticker
 {
-	public partial class Form1 : Form
+	public partial class NewsTicker : Form
 	{
-		public Form1()
+		public NewsTicker()
 		{
 			InitializeComponent();
 		}
