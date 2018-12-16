@@ -22,10 +22,12 @@ namespace News_Ticker
 
 		private void NewsTicker_Load(object sender, EventArgs e)
 		{
+			int news_index = 0;
+
 			for (int i = 0; i < 6; i++)
 			{
 				List<Panel> panellist = new List<Panel>();
-				for (int j = 0; j < 4; j++)
+				for (int j = 0; j < 2; j++)
 				{
 					Panel panel = new Panel();
 					panel.Size = new System.Drawing.Size(420, 110);
@@ -34,16 +36,24 @@ namespace News_Ticker
 
 					List<news_element> new_news = new List<news_element>();
 					new_news = get_news_Elements();
-
-					foreach (news_element news in new_news)
-					{
-						panel.Controls.Add(news);
-					}
+					
 					panellist.Add(panel);
-					//panellist.Add(panel);
-				}
+					panellist[j].Controls.Add(new_news[news_index]);
+					news_index++;
+				}	
 				panellistlist.Add(panellist);
 			}
+			
+
+				for (int i = 0; i < 4; i++)
+				{		
+					List<news_element> new_news = new List<news_element>();
+					new_news = get_news_Elements();
+					for (int j = 0; j < 2; j++)
+					{
+						panellistlist[i][j].Controls.Add(new_news[j]);
+					}
+				}
 
 			for (int i = 0; i < 4; i++)
 			{		
@@ -54,8 +64,6 @@ namespace News_Ticker
 				}
 			}
 		}
-
-
 
 		List<news_element> get_news_Elements()
 		{

@@ -1,4 +1,5 @@
-﻿namespace News_Ticker
+﻿
+namespace News_Ticker
 {
 	partial class news_element
 	{
@@ -28,10 +29,12 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.lbl_titel = new System.Windows.Forms.Label();
-			this.lbl_description = new System.Windows.Forms.Label();
 			this.lnklbl_go_to_articel = new System.Windows.Forms.LinkLabel();
 			this.lbl_source = new System.Windows.Forms.Label();
+			this.rtxtBox_Description = new System.Windows.Forms.RichTextBox();
+			this.tmer_Slider = new System.Windows.Forms.Timer(this.components);
 			this.SuspendLayout();
 			// 
 			// lbl_titel
@@ -43,16 +46,6 @@
 			this.lbl_titel.Size = new System.Drawing.Size(95, 24);
 			this.lbl_titel.TabIndex = 0;
 			this.lbl_titel.Text = "Titel fehlt";
-			// 
-			// lbl_description
-			// 
-			this.lbl_description.AutoSize = true;
-			this.lbl_description.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbl_description.Location = new System.Drawing.Point(6, 40);
-			this.lbl_description.Name = "lbl_description";
-			this.lbl_description.Size = new System.Drawing.Size(118, 16);
-			this.lbl_description.TabIndex = 1;
-			this.lbl_description.Text = "Beschreibung fehlt";
 			// 
 			// lnklbl_go_to_articel
 			// 
@@ -76,14 +69,29 @@
 			this.lbl_source.TabIndex = 4;
 			this.lbl_source.Text = "Quelle fehlt";
 			// 
+			// rtxtBox_Description
+			// 
+			this.rtxtBox_Description.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.rtxtBox_Description.Location = new System.Drawing.Point(9, 35);
+			this.rtxtBox_Description.Name = "rtxtBox_Description";
+			this.rtxtBox_Description.Size = new System.Drawing.Size(405, 48);
+			this.rtxtBox_Description.TabIndex = 5;
+			this.rtxtBox_Description.Text = "";
+			// 
+			// tmer_Slider
+			// 
+			this.tmer_Slider.Enabled = true;
+			this.tmer_Slider.Interval = 50;
+			this.tmer_Slider.Tick += new System.EventHandler(this.tmer_Slider_Tick);
+			// 
 			// news_element
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.Transparent;
+			this.BackColor = System.Drawing.Color.White;
+			this.Controls.Add(this.rtxtBox_Description);
 			this.Controls.Add(this.lbl_source);
 			this.Controls.Add(this.lnklbl_go_to_articel);
-			this.Controls.Add(this.lbl_description);
 			this.Controls.Add(this.lbl_titel);
 			this.Name = "news_element";
 			this.Size = new System.Drawing.Size(420, 110);
@@ -95,8 +103,9 @@
 		#endregion
 
 		private System.Windows.Forms.Label lbl_titel;
-		private System.Windows.Forms.Label lbl_description;
 		private System.Windows.Forms.LinkLabel lnklbl_go_to_articel;
 		private System.Windows.Forms.Label lbl_source;
+		private System.Windows.Forms.RichTextBox rtxtBox_Description;
+		private System.Windows.Forms.Timer tmer_Slider;
 	}
 }
